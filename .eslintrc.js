@@ -26,7 +26,11 @@ module.exports = {
     // 3. 注意要加上这一句，开启 prettier 自动修复的功能
     'prettier/prettier': 'error',
     quotes: ['error', 'single'],
-    'react/react-in-jsx-scope': 'off'
+    'react/react-in-jsx-scope': 'off',
+    // 允许非空断言
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    // 允许使用require和var语句
+    '@typescript-eslint/no-var-requires': 'off'
   },
   settings: {
     react: { version: 'detect' }

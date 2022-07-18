@@ -7,9 +7,11 @@ import autoprefixer from 'autoprefixer'
 import viteEslint from 'vite-plugin-eslint'
 import viteStylelint from '@amatlash/vite-plugin-stylelint'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
-import svgr from 'vite-plugin-svgr'
+import svgr from './plugins/svgr'
 import viteImagemin from 'vite-plugin-imagemin'
-
+import virtual from './plugins/virtual-module'
+// vite插件调试工具
+import inspect from 'vite-plugin-inspect'
 // 全局 scss 文件的路径
 // 用 normalizePath 解决 window 下的路径问题
 const variablePath = normalizePath(path.resolve('./src/variable.scss'))
@@ -55,7 +57,9 @@ export default defineConfig({
     }),
     createSvgIconsPlugin({
       iconDirs: [path.join(__dirname, 'src/assets/icons')]
-    })
+    }),
+    virtual(),
+    inspect()
   ],
   css: {
     preprocessorOptions: {
